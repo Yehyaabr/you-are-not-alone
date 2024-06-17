@@ -1,5 +1,6 @@
 "use client";
 
+import { arSA } from "date-fns/locale";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 
@@ -9,6 +10,8 @@ import { cn } from "@/lib/utils";
 function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
 	return (
 		<DayPicker
+			locale={arSA}
+			dir="rtl"
 			showOutsideDays={showOutsideDays}
 			className={cn("p-3", className)}
 			classNames={{
@@ -36,8 +39,8 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }) {
 				...classNames,
 			}}
 			components={{
-				IconLeft: ({ ...props }) => <ChevronLeft className="h-4 w-4" />,
-				IconRight: ({ ...props }) => <ChevronRight className="h-4 w-4" />,
+				IconLeft: ({ ...props }) => <ChevronRight className="h-4 w-4" />,
+				IconRight: ({ ...props }) => <ChevronLeft className="h-4 w-4" />,
 			}}
 			{...props}
 		/>
